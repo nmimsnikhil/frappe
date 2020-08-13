@@ -82,7 +82,7 @@ def get_outgoing_email_account(raise_exception_not_set=True, append_to=None, sen
 			email_account = get_default_outgoing_email_account(raise_exception_not_set=raise_exception_not_set)
 
 		if not email_account and raise_exception_not_set and cint(frappe.db.get_single_value('System Settings', 'setup_complete')):
-			frappe.throw(_("Please setup default Email Account for sending from <a href=#List/Email%20Account/List>Email Account</a>."),
+			frappe.throw(_("Please setup a default <a href=#List/Email%20Account/List>Email Account</a> for sending"),
 				frappe.OutgoingEmailError)
 
 		if email_account:
