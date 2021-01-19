@@ -115,3 +115,14 @@ frappe.ui.form.on("Dynamic Link", {
 		}
 	}
 })
+
+frappe.ui.form.on("Contact Phone", {
+
+	phone: function (frm, cdt, cdn) {
+		let row = locals[cdt][cdn];
+		var number = /^[0-9+ \-)(]+$/;
+		if (!row.phone.match(number)) {
+			frappe.model.set_value(cdt, cdn, "phone", "");
+		}
+	}
+})
